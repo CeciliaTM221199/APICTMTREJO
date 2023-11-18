@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from rest_framework.views import APIView 
 from django.views import View
-from .models import RegistroU
+from .models import Encuesta, RegistroU
 from .forms import RegistroForm
 from django.http import *
 from django.contrib import messages 
@@ -21,6 +21,14 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib import messages
 from .forms import RegistroForm
+
+from .models import Product
+
+# views.py
+from django.shortcuts import render
+#from paypalrestsdk import Payment
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 class Variable(APIView):
     template_name="ejemplo1.html"
@@ -103,3 +111,22 @@ def iniciar_sesion(request):
     return render(request, 'loginInicio.html')
 
 
+def chart_view(request):
+    #Gama de colores
+    gama1 = Encuesta.objects.filter(gama="Azul-Verde").count()
+    gama2 = Encuesta.objects.filter(gama="Azul").count()
+    gama3 = Encuesta.objects.filter(gama="Azul-Rosa").count()
+    
+
+    return render(request, 'chart.html', context = {
+        'gama1': gama1,
+        'gama2': gama2,
+        'gama3': gama3,
+    }
+ )
+
+def ProductView(request):
+
+    get_products = Product.objects.all()
+
+    return render(request, 'products.html', {'products': get_products})
