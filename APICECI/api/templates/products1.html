@@ -80,10 +80,10 @@
         <h1>Productos</h1>
     <div class="product-container">
         {% for i in products %}
-            <div class="product-item">
-                <img class="img", src={% static "dist/img/aa.jpg" %}>
+            <div class="products">
+                <img src={% static "dist/img/aa.jpg" %}>
                 </a><br>
-                <a class="button", href="">{{i.name}}</a>
+                <a href="">{{i.name}}</a>
                 <p>$ {{i.price}}</p>
             </div>
         {% endfor %}
