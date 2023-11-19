@@ -30,3 +30,4 @@ class Product(models.Model):
     price = models.CharField(max_length=100, db_column='price')
     class Meta:
         db_table='product'
+

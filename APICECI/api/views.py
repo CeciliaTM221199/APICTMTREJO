@@ -130,3 +130,4 @@ def ProductView(request):
     get_products = Product.objects.all()
 
     return render(request, 'products.html', {'products': get_products})
+

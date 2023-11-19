@@ -25,6 +25,7 @@
     <link rel="bookmark" href="favicon_16.ico"/>
     <!-- site css -->
     <link rel="stylesheet" href="{% static 'dist/css/site.min.css' %}"> 
+    <link rel="stylesheet" href="{% static 'dist/css/products.css' %}"> 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
     <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
@@ -77,37 +78,16 @@
    
     <!-- PRODUCTOS EN VENTA -->
         <h1>Productos</h1>
-
     <div class="product-container">
         {% for i in products %}
             <div class="products">
-                
-                <img src="{% static 'img/a.jpg' %}">
+                <img src={% static "dist/img/aa.jpg" %}>
                 </a><br>
-                <a href="{% url 'checkout.html' i.id %}">{{i.name}}</a>
+                <a href="">{{i.name}}</a>
                 <p>$ {{i.price}}</p>
             </div>
         {% endfor %}
     </div>
-    <style>
-        body {
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .product-container {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            height: 100vh;
-        }
-        .img {
-            width: 60%;
-            border-radius: 50px;
-        }
-    </style>
-
-
-    
+  
 </body>
 </html>
